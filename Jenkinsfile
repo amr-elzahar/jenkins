@@ -22,5 +22,4 @@ pipeline {
             sh 'docker push amrelzahar/simple-app'
          }
       }
-   }
 }

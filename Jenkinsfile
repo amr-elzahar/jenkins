@@ -5,6 +5,7 @@ pipeline {
       DOCKERHUB_CREDENTIALS = credentials('dockerhub-creds')
    }
 
+   stages {
       stage('Build Image'){
          steps {
             sh 'docker build -t amrelzahar/simple-app .'
@@ -22,4 +23,6 @@ pipeline {
             sh 'docker push amrelzahar/simple-app'
          }
       }
+   }
+     
 }

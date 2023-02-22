@@ -23,6 +23,17 @@ pipeline {
             sh 'docker push amrelzahar/simple-app'
          }
       }
+
+      stage('deploy') {
+         steps {
+         
+               withCredentials([file(credentialsId: 'myconfig', variable: 'config')]) {
+               sh """
+                     
+                     kubectl apply -f Deployment --kubeconfig=${config}
+                  """
+            }
+         }
+      }
    }
-     
 }
